@@ -76,5 +76,8 @@ def submit():
     sheet.append_row([name, phone, postcode, service, date, time, end.strftime("%H:%M")])
     return "Booking confirmed!"
 
+import os
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))  # Required for Render
+    app.run(host="0.0.0.0", port=port)
