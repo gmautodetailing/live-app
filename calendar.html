@@ -1,0 +1,14 @@
+<form method='POST' action='/submit'>
+  <input type='hidden' name='name' value='{{ name }}'>
+  <input type='hidden' name='phone' value='{{ phone }}'>
+  <input type='hidden' name='postcode' value='{{ postcode }}'>
+  <input type='hidden' name='service' value='{{ service }}'>
+  {% for date, times in slots %}
+    <h3>{{ date }}</h3>
+    {% for time in times %}
+      <input type='radio' name='time' value='{{ time }}'> {{ time }}<br>
+    {% endfor %}
+  {% endfor %}
+  <input type='hidden' name='date' value='{{ slots[0][0] }}'>
+  <button type='submit'>Confirm Booking</button>
+</form>
